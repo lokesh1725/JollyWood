@@ -1,0 +1,277 @@
+:root {
+  --primary: #6366f1;
+  --secondary: #a855f7;
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent: #22d3ee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+#app {
+  width: 100%;
+  max-width: 1000px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.search-container {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--glass-bg);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.search-container:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+}
+
+.search-container input {
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  font-size: 1rem;
+  width: 250px;
+  font-family: inherit;
+}
+
+.search-container input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-container button {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.search-container button:hover {
+  color: var(--primary);
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#current-weather {
+  padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.location h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.location p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.temp-display {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#temperature {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+#weather-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.weather-desc {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  gap: 1rem;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.detail-item .label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.detail-item .value {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+#forecast h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.forecast-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.forecast-item {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.forecast-item .day {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.forecast-item img {
+  width: 50px;
+  height: 50px;
+}
+
+.forecast-item .temp {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+footer {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+#error-message {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #app {
+    padding: 1rem;
+  }
+  
+  header {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+  
+  .search-container {
+    width: 100%;
+  }
+  
+  .search-container input {
+    width: 100%;
+  }
+  
+  #current-weather {
+    padding: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .weather-details {
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
